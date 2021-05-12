@@ -6,5 +6,5 @@ class LogInLocators:
     INPUT_EMAIL = (By.XPATH, '//input[@name="login"]')
     INPUT_PASSWORD = (By.XPATH, '//input[@name="password"]')
     SUBMIT_LOG_IN = (By.XPATH, '//button[@type="submit"]')
-    WRONG_MSG = (By.XPATH, '//span[@class="dttHhd"]')
+    WRONG_MSG = (By.CLASS_NAME, 'dttHhd')
     LOG_OUT_BUTTON = (By.CSS_SELECTOR, 'a.kwClzl[href="/wyloguj"]')

@@ -11,7 +11,7 @@ class TestAddToCart:
         cart_page.open_page()
         return cart_page
 
-    @allure.title('Test poprawnego tytułu strony')
+    @allure.title('Test weryfiikacji poprawnego tytułu strony')
     @allure.description('Test sklepu komputerowego Xkom.pl')
     def test_page_title(self):
         # (VERIFICATION) Poprawnego tytulu strony internetowej sklepu.
@@ -57,5 +57,3 @@ class TestAddToCart:
 
         # (VERIFICATION) Czy produkt został poprawnie dodany do koszyka.
         cart_page.check_cart_value()
-
-        slee
