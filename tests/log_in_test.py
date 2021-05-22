@@ -1,6 +1,8 @@
 import pytest
 from pages.log_in_page import LoginIn
+from utils.excel_reader import ExcelReader
 import allure
+
 
 @pytest.mark.usefixtures('setup')
 class TestLogIn:
@@ -21,7 +23,8 @@ class TestLogIn:
 
     @allure.title('Test logowania z pozytywnym rezultatem')
     @allure.description('Test sklepu komputerowego Xkom.pl')
-    def test_log_in_passed(self):
+    @pytest.mark.parametrize('data', ExcelReader.get_data_log_in_passed())
+    def test_log_in_passed(self, data):
         cart_page = self.prepare_page()
 
         # 2. Najedź kursorem myszy na przycisk "Twoje konto"
@@ -33,7 +36,7 @@ class TestLogIn:
         cart_page.go_to_log_in()
 
         # 4. Wypełnij logowania o adres e-mail oraz hasło.
-        cart_page.sign_in_form('zdybek1997@gmail.com', 'zdybek123')
+        cart_page.sign_in_form(data.email, data.password)
 
         # 5. Naciśnij w przycisk "Zaloguj się"
         cart_page.login_in_submit()
@@ -44,7 +47,8 @@ class TestLogIn:
 
     @allure.title('Test logowania z negatywnym rezultatem')
     @allure.description('Test sklepu komputerowego Xkom.pl')
-    def test_log_in_not_passed(self):
+    @pytest.mark.parametrize('data', ExcelReader.get_data_log_in_fail())
+    def test_log_in_not_passed(self, data):
         cart_page = self.prepare_page()
 
         # 2. Najedź kursorem myszy na przycisk "Twoje konto"
@@ -56,7 +60,7 @@ class TestLogIn:
         cart_page.go_to_log_in()
 
         # 4. Wypełnij logowania o adres e-mail oraz hasło.
-        cart_page.sign_in_form('zdybek1997@gmail.com', 'zdybek')
+        cart_page.sign_in_form(data.email, data.password)
 
         # 5. Naciśnij w przycisk "Zaloguj się"
         cart_page.login_in_submit()

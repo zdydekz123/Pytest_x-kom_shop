@@ -1,5 +1,6 @@
 import pytest
 from pages.add_to_cart_page import AddItemToCart
+from utils.excel_reader import ExcelReader
 import allure
 
 @pytest.mark.usefixtures('setup')
@@ -31,14 +32,15 @@ class TestAddToCart:
 
     @allure.title('Test dodawania produktu do koszyka')
     @allure.description('Test sklepu komputerowego Xkom.pl')
-    def test_add_item_to_cart(self):
+    @pytest.mark.parametrize('data', ExcelReader.search_data())
+    def test_add_item_to_cart(self, data):
         cart_page = self.prepare_page()
 
         # 2. Kliknij w puste pole głównej wyszukiwarki sklepu.
         cart_page.click_on_search_input()
 
         # 3. W polu wyszukiwarki wpisz wartość "laptop".
-        value = cart_page.type_proper_value('laptop')
+        value = cart_page.type_proper_value(data.typed_value)
         assert value == 'laptop'
 
         # 4. Wyszukaj pozadana wartosc naciskajac w submit button.
