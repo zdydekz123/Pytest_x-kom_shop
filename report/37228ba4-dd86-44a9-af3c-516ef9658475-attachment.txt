@@ -1,0 +1,12 @@
+[32mINFO    [0m WDM:logger.py:12 
+
+[32mINFO    [0m WDM:logger.py:12 ====== WebDriver manager ======
+[32mINFO    [0m WDM:logger.py:12 Current google-chrome version is 89.0.4389
+[32mINFO    [0m WDM:logger.py:12 Get LATEST driver version for 89.0.4389
+[32mINFO    [0m WDM:logger.py:12 Driver [/home/tester/.wdm/drivers/chromedriver/linux64/89.0.4389.23/chromedriver] found in cache
+[32mINFO    [0m pages.base_page:log_in_page.py:22 [LOGS] Czy logowanie do sklepu jest dostępne
+[32mINFO    [0m pages.base_page:log_in_page.py:30 [LOGS] Czy przycisk do logowania jest widoczny
+[32mINFO    [0m pages.base_page:log_in_page.py:37 [LOGS] Przechodzenie do sesji logowania
+[32mINFO    [0m pages.base_page:log_in_page.py:44 [LOGS] Formularz logowania: email: zdybek@gmail.com oraz hasło: zdybek
+[32mINFO    [0m pages.base_page:log_in_page.py:60 [LOGS] Zatwierdzenie próby logowania
+[32mINFO    [0m pages.base_page:log_in_page.py:53 [LOGS] Czy komunikat o niepoprawnym logowaniu jest dostępny
